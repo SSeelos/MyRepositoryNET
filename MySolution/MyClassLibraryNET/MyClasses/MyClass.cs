@@ -45,8 +45,9 @@
         //all instances of the class share static properties
         public static string? MyStaticProperty { get; set; }
 
-        //init property: needs to be set in constructor
-        public string MyInit { get; init; }
+        //init only property: can only be set at the point of object creation
+        //allows for a much more flexible immutable model
+        public string? MyInit { get; init; }
 
         #region Advanced Property
 
@@ -64,7 +65,7 @@
                 OnValueChanged?.Invoke(_myValue);
             }
         }
-        public event Action<double> OnValueChanged;
+        public event Action<double>? OnValueChanged;
 
         #endregion
 
