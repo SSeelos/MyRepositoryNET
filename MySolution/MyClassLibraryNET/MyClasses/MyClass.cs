@@ -79,6 +79,11 @@
         }
         #endregion
 
+        public void MyMethod()
+        {
+            throw new NotImplementedException();
+        }
+
         public void MyInterfaceA_Method()
         {
             throw new NotImplementedException();
@@ -88,6 +93,25 @@
         {
             throw new NotImplementedException();
         }
+
+        protected override void MyProtectedAbstractMethod()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void MyAbstractMethod()
+        {
+            throw new NotImplementedException();
+        }
+        /// <summary>
+        /// "new" method gets only called if not cast to base class!
+        /// (<see cref="_MyAbstractClass"/>)
+        /// </summary>
+        public new string MyNewMethod()
+        {
+            throw new NotImplementedException();
+        }
+
         #endregion
     }
 }
