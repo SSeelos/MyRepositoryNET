@@ -1,5 +1,8 @@
 ﻿namespace MyClassLibraryNET
 {
+    /// <summary>
+    /// reference type
+    /// </summary>
     public class MyClass : _MyAbstractClass, IMyInterfaceA, IMyInterfaceB
     {
         #region Members
@@ -9,15 +12,22 @@
         //The means by which framework functionality is exposed to the end users of a framework.
 
         #region Fields
-        //a type should be designed so that changes to fields of that type (name or type changes)
-        //can be made without breaking code other than for members of the type.
-        //This implies that all fields must be private.
+        /// <summary>
+        /// a type should be designed so that changes to fields of that type (name or type changes)
+        /// can be made without breaking code other than for members of the type.
+        /// This implies that all fields must be private.
+        /// </summary>
         private string myField = "field value";
 
         //excluded from this strict restriction are constant and static read-only fields,
         //because such fields, are never required to change.
+        /// <summary>
+        /// compile-time const (static by default)
+        /// </summary>
         public const string myConstant = nameof(myConstant);
-        //all instances of the class share static members
+        /// <summary>
+        /// all instances of the class share static members
+        /// </summary>
         public static readonly string myStaticReadonlyField = nameof(myStaticReadonlyField);
 
         #endregion
@@ -31,7 +41,14 @@
         public readonly string? MyReadOnly;
 
         //property & backing field
+
+        /// <summary>
+        /// backing field for <see cref="MyFullProperty"/>
+        /// </summary>
         private int myFullProperty;
+        /// <summary>
+        /// property with (explicit) backing field <see cref="myFullProperty"/>
+        /// </summary>
 
         public int MyFullProperty
         {
@@ -39,15 +56,23 @@
             set { myFullProperty = value; }
         }
 
-        //(auto-implemented) property: field with get/set block
+        /// <summary>
+        /// (auto-implemented) property: field with get/set block
+        /// </summary>
         public string? MyAutoProperty { get; set; }
 
-        //all instances of the class share static properties
+        /// <summary>
+        /// all instances of the class share static properties
+        /// </summary>
         public static string? MyStaticProperty { get; set; }
 
-        //init only property: can only be set at the point of object creation
-        //allows for a much more flexible immutable model
-        public string? MyInit { get; init; }
+        /// <summary>
+        /// init only property: can only be set at the point of object creation (readonly)
+        /// allows for a much more flexible immutable model
+        /// </summary>
+        public string? MyInitNullable { get; init; }
+        /// </summary>
+        public string MyInit { get; init; }
 
         #region Advanced Property
 
@@ -72,10 +97,16 @@
         #endregion
 
         #region Constructors (ctor)
-        //empty constructor
+        /// <summary>
+        /// empty constructor
+        /// </summary>
         public MyClass()
         {
-
+        }
+        public MyClass(string readOnlyValue)
+        {
+            //readonly can only be set in ctor (or init)
+            this.MyReadOnly = readOnlyValue;
         }
         #endregion
 
