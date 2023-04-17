@@ -5,9 +5,31 @@
         [Fact()]
         public void MyClassTest()
         {
-            var myClass = new MyClass();
+            var myObject = new MyClass();
+            myObject.Should().NotBeNull();
+            myObject.MyInit.Should().Be(nameof(MyClass.MyInit));
+        }
+        [Fact()]
+        public void MyClassInitTest()
+        {
+            var myObject = new MyClass() { MyInit = nameof(MyClass.MyInit) };
+            myObject.Should().NotBeNull();
+            myObject.MyInit.Should().Be(nameof(MyClass.MyInit));
+        }
+        [Fact]
+        public void EqualsTest()
+        {
+            var myClass = new MyClass
+            {
+                MyInit = nameof(MyClass.MyInit)
+            };
+            var other = new MyClass
+            {
+                MyInit = nameof(MyClass.MyInit)
+            };
 
-            myClass.Should().NotBeNull();
+            myClass.Equals(other).Should().BeFalse();
+            (myClass == other).Should().BeFalse();
         }
     }
 }
