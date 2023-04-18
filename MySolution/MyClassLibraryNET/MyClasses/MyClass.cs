@@ -98,6 +98,20 @@ namespace MyClassLibraryNET
 
         #endregion
 
+        #region Events
+        public static event Action? MyStaticEventAction;
+        /// <summary>
+        /// Method to invoke <see cref="MyStaticEventAction"/>
+        /// </summary>
+        public static void InvokeStaticAction() => MyStaticEventAction?.Invoke();
+        public static event Func<string>? MyStaticEventFunc;
+        /// <summary>
+        /// Method to invoke <see cref="MyStaticEventFunc"/>
+        /// </summary>
+        public static string? InvokeStaticFunc() => MyStaticEventFunc?.Invoke();
+
+        #endregion
+
         #region Constructors (ctor)
         /// <summary>
         /// empty constructor
@@ -110,7 +124,19 @@ namespace MyClassLibraryNET
             //readonly can only be set in ctor (or init)
             this.MyReadOnly = readOnlyValue;
         }
+        private MyClass(string readOnlyValue, string? nullableValue)
+        {
+            //readonly can only be set in ctor (or init)
+            this.MyReadOnly = readOnlyValue;
+            this.MyInitNullable = nullableValue;
+        }
+        /// <summary>
+        /// Factory method to create new instance of <see cref="MyClass"/> using private ctor
+        /// </summary>
+        public static MyClass New(string init) => new("new", "nullable") { MyInit = init };
         #endregion
+
+        #region Methods
 
         public string MyMethod()
         {
@@ -150,6 +176,8 @@ namespace MyClassLibraryNET
         {
             throw new NotImplementedException();
         }
+
+        #endregion
 
         #endregion
     }
