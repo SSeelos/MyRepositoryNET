@@ -1,4 +1,6 @@
-﻿namespace MyClassLibraryNET
+﻿using System.Reflection;
+
+namespace MyClassLibraryNET
 {
     /// <summary>
     /// reference type
@@ -110,10 +112,16 @@
         }
         #endregion
 
-        public void MyMethod()
+        public string MyMethod()
+        {
+            var memberName = MyStaticClass.GetCallerMemberName();
+            return MethodBase.GetCurrentMethod().Name;
+        }
+        public static void MyStaticMethod()
         {
             throw new NotImplementedException();
         }
+
 
         public void MyInterfaceA_Method()
         {

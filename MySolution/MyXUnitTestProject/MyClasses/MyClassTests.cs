@@ -16,6 +16,23 @@
             myObject.Should().NotBeNull();
             myObject.MyInit.Should().Be(nameof(MyClass.MyInit));
         }
+        [Fact()]
+        public void MyClassMethodsTest()
+        {
+            var myClass = new MyClass();
+            var myMethod = myClass.MyMethod();
+            MyClass.MyStaticMethod();
+
+            myClass.MyMethodFromBase();
+            myClass.MyAbstractMethod();
+            myClass.MyVirtualMethod();
+
+            myClass.MyInterfaceA_Method();
+            myClass.MyInterfaceB_Method();
+            myClass.MyInterfaceC_Method();
+
+            myClass.MyExtensionMethod();
+        }
         [Fact]
         public void EqualsTest()
         {
