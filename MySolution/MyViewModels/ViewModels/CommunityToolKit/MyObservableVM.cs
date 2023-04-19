@@ -1,7 +1,8 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using MyViewModels.Commands;
 using System.Windows.Input;
 
-namespace MyViewModels
+namespace MyViewModels.CommunityToolkit
 {
     public class MyObservableVM : ObservableObject
     {

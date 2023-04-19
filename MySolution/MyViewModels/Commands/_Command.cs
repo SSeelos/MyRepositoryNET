@@ -1,7 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using System.Windows.Input;
 
-namespace MyViewModels
+namespace MyViewModels.Commands
 {
     public abstract class _Command : ICommand
     {

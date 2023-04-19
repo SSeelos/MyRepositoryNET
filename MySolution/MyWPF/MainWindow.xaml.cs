@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using MyViewModels;
+using System.Windows;
 
 namespace MyWPF
 {
@@ -9,7 +10,7 @@ namespace MyWPF
     {
         public MainWindow()
         {
-            DataContext = new MyViewModels.MyObservableVM();
+            DataContext = new MyVM();
             InitializeComponent();
         }
     }

@@ -1,4 +1,6 @@
-﻿namespace MyViewModels
+﻿using MyViewModels.CommunityToolkit;
+
+namespace MyViewModels.Commands
 {
     public class MyCommand : _Command<MyObservableVM>
     {

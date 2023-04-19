@@ -4,17 +4,20 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:VM="clr-namespace:MyViewModels;assembly=MyViewModels"
-        d:DataContext="{d:DesignInstance Type=VM:MyObservableVM, IsDesignTimeCreatable=True}"
+        d:DataContext="{d:DesignInstance Type=VM:MyVM, IsDesignTimeCreatable=True}"
         mc:Ignorable="d"
         Title="MainWindow"
         MinWidth="800"
         SizeToContent ="WidthAndHeight">
     <StackPanel>
         <TextBlock Text="Property (TwoWay)"/>
-        <TextBox Text="{Binding MyProperty, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Text="{Binding MyPropertyA, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Text="{Binding MyPropertyB, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
         <TextBlock Text="Property (OneWayToSpurce)"/>
-        <TextBox Text="{Binding MyProperty, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Text="{Binding MyPropertyA, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Text="{Binding MyPropertyB, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"/>
         <TextBlock Text="Property (OneWay)"/>
-        <TextBox Text="{Binding MyProperty, Mode=OneWay}" IsReadOnly="True" Background="LightGray"/>
+        <TextBox Text="{Binding MyPropertyA, Mode=OneWay}" IsReadOnly="True" Background="LightGray"/>
+        <TextBox Text="{Binding MyPropertyB, Mode=OneWay}" IsReadOnly="True" Background="LightGray"/>
     </StackPanel>
 </Window>
