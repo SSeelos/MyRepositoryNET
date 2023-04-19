@@ -79,10 +79,15 @@
         public void FuncEvent_MultibleSubscribersTest()
         {
             Func<string> myFunc = () => "return value";
+            Func<string> myOtherFunc = () => "other return value";
             MyClass.MyStaticEventFunc += myFunc;
+            MyClass.MyStaticEventFunc += myOtherFunc;
 
             Func<string?> invoke = MyClass.InvokeStaticFunc;
             invoke.Should().NotThrow();
+
+            //will only return one of the subscribers value
+            var result = invoke.Invoke();
         }
     }
 }
