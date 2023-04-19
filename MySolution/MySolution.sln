@@ -13,9 +13,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyClassLibraryNetStandard2_
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyClassLibraryNetStandard2_1", "MyClassLibraryNetStandard2_1\MyClassLibraryNetStandard2_1.csproj", "{D7851BB6-2175-4F5B-A9F8-867C4F632F0B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SystemExtensions", "SystemExtensions\SystemExtensions.csproj", "{7A0F5464-054F-4DE5-AF7D-DE9036588C18}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SystemExtensions", "SystemExtensions\SystemExtensions.csproj", "{7A0F5464-054F-4DE5-AF7D-DE9036588C18}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SystemExtensionsTests", "SystemExtensionsTests\SystemExtensionsTests.csproj", "{2EE514FA-AF94-44A6-BA83-4D7BB688C9B6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SystemExtensionsTests", "SystemExtensionsTests\SystemExtensionsTests.csproj", "{2EE514FA-AF94-44A6-BA83-4D7BB688C9B6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyViewModels", "MyViewModels\MyViewModels.csproj", "{2CD30779-B022-4272-AD44-E3B6DDE7CE41}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyWPF", "MyWPF\MyWPF.csproj", "{F7968D7B-E5EB-48FB-81FC-79EE69F56764}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +55,14 @@ Global
 		{2EE514FA-AF94-44A6-BA83-4D7BB688C9B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2EE514FA-AF94-44A6-BA83-4D7BB688C9B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2EE514FA-AF94-44A6-BA83-4D7BB688C9B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CD30779-B022-4272-AD44-E3B6DDE7CE41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CD30779-B022-4272-AD44-E3B6DDE7CE41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CD30779-B022-4272-AD44-E3B6DDE7CE41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CD30779-B022-4272-AD44-E3B6DDE7CE41}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7968D7B-E5EB-48FB-81FC-79EE69F56764}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7968D7B-E5EB-48FB-81FC-79EE69F56764}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7968D7B-E5EB-48FB-81FC-79EE69F56764}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7968D7B-E5EB-48FB-81FC-79EE69F56764}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
