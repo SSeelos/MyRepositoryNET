@@ -44,5 +44,11 @@
     <Compile Include="MyClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MyClassLibraryNetStandard2_0\MyClassLibraryNetStandard2_0.csproj">
+      <Project>{27ac6830-02d3-44c6-afdc-cbab5dc7587b}</Project>
+      <Name>MyClassLibraryNetStandard2_0</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -6,4 +6,10 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MyClassLibraryNetFramework\MyClassLibraryNetFramework.csproj" />
+    <ProjectReference Include="..\MyClassLibraryNetStandard2_0\MyClassLibraryNetStandard2_0.csproj" />
+    <ProjectReference Include="..\MyClassLibraryNetStandard2_1\MyClassLibraryNetStandard2_1.csproj" />
+  </ItemGroup>
+
 </Project>

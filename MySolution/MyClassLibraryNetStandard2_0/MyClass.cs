@@ -2,6 +2,9 @@
 {
     public class MyClass
     {
-
+        public MyClass()
+        {
+            //can be referenced by all .Net versions
+        }
     }
 }
