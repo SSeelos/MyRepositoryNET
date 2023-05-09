@@ -1,4 +1,4 @@
-﻿namespace MyClassLibraryNET.Tests
+﻿namespace MyRootNamespace.MyClassLibraryNET.Tests
 {
     public class MyStructTests
     {

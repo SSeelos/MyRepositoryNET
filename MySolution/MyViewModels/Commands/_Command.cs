@@ -1,33 +1,22 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
-using System.Windows.Input;
+﻿using System.Windows.Input;
 
-namespace MyViewModels.Commands
+namespace MyViewModels
 {
     public abstract class _Command : ICommand
     {
         public event EventHandler? CanExecuteChanged;
-
         public virtual bool CanExecute(object? parameter) => true;
-
-        public abstract void Execute(object? parameter);
-    }
-
-    /// <summary>
-    /// <see cref="ICommand"/> with a reference to an <see cref="ObservableObject"/> (VM, ...)
-    /// </summary>
-    /// <typeparam name="T"></typeparam>
-    public abstract class _Command<T> : ICommand
-        where T : ObservableObject
-    {
-        protected T? observable;
-
-        public event EventHandler? CanExecuteChanged;
-
-        public _Command(T observable)
+        public void Execute(object? parameter)
         {
-            this.observable = observable;
+            try
+            {
+                TryExecute(parameter);
+            }
+            catch
+            {
+                //todo
+            }
         }
-        public virtual bool CanExecute(object? parameter) => true;
-        public abstract void Execute(object? parameter);
+        protected abstract void TryExecute(object? parameter);
     }
 }

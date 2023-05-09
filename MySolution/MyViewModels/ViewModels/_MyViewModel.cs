@@ -31,14 +31,32 @@ namespace MyViewModels
     //a ViewModel object is set as the DataContext of a view.
 
     //The ViewModel, never the View, performs all modifications made to the model data.
-    public abstract class _MyViewModel : INotifyPropertyChanging, INotifyPropertyChanged
+    public abstract class _MyViewModel : INotifyPropertyChanges
     {
         public event PropertyChangedEventHandler? PropertyChanged;
         public event PropertyChangingEventHandler? PropertyChanging;
-
-        internal virtual void OnPropertyChanged([CallerMemberName] string? propertyName = null)
-            => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        internal virtual void OnPropertyChanging([CallerMemberName] string? propertyName = null)
+        /// <summary>
+        /// Call before a property value is changing
+        /// to notify clients
+        /// </summary>
+        public virtual void OnPropertyChanging([CallerMemberName] string? propertyName = null)
             => PropertyChanging?.Invoke(this, new PropertyChangingEventArgs(propertyName));
+        /// <summary>
+        /// Call after a property value has changed
+        /// to notify clients
+        /// </summary>
+        public virtual void OnPropertyChanged([CallerMemberName] string? propertyName = null)
+            => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+    }
+
+    /// <summary>
+    /// pseudointerface combining <see cref="INotifyPropertyChanging"/> and <see cref="INotifyPropertyChanged"/>
+    /// </summary>
+    public interface INotifyPropertyChanges : INotifyPropertyChanging, INotifyPropertyChanged
+    {
+        event PropertyChangedEventHandler? PropertyChanged;
+        event PropertyChangingEventHandler? PropertyChanging;
+        void OnPropertyChanging([CallerMemberName] string? propertyName = null);
+        void OnPropertyChanged([CallerMemberName] string? propertyName = null);
     }
 }

@@ -4,20 +4,35 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:VM="clr-namespace:MyViewModels;assembly=MyViewModels"
+        xmlns:M="clr-namespace:MyViewModels.Models;assembly=MyViewModels"
+        xmlns:UserControlsV="clr-namespace:MyWPF.Views.UserControls"
+        xmlns:PagesV="clr-namespace:MyWPF.Views.Pages"
         d:DataContext="{d:DesignInstance Type=VM:MyVM, IsDesignTimeCreatable=True}"
         mc:Ignorable="d"
         Title="MainWindow"
         MinWidth="800"
         SizeToContent ="WidthAndHeight">
-    <StackPanel>
-        <TextBlock Text="Property (TwoWay)"/>
-        <TextBox Text="{Binding MyPropertyA, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-        <TextBox Text="{Binding MyPropertyB, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-        <TextBlock Text="Property (OneWayToSpurce)"/>
-        <TextBox Text="{Binding MyPropertyA, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"/>
-        <TextBox Text="{Binding MyPropertyB, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"/>
-        <TextBlock Text="Property (OneWay)"/>
-        <TextBox Text="{Binding MyPropertyA, Mode=OneWay}" IsReadOnly="True" Background="LightGray"/>
-        <TextBox Text="{Binding MyPropertyB, Mode=OneWay}" IsReadOnly="True" Background="LightGray"/>
-    </StackPanel>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition MinHeight="40"/>
+            <RowDefinition MinHeight="100"/>
+            <RowDefinition MinHeight="40"/>
+        </Grid.RowDefinitions>
+        <UserControlsV:MyUserControlV MyProperty="MyProperty"/>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition MinWidth="50"/>
+                <ColumnDefinition MinWidth="200"/>
+                <ColumnDefinition MinWidth="50"/>
+            </Grid.ColumnDefinitions>
+            <TabControl Grid.Column="1"
+                        ItemsSource="{Binding MyModels}">
+                <TabControl.ContentTemplate>
+                    <DataTemplate DataType="M:MyModel">
+                        
+                    </DataTemplate>
+                </TabControl.ContentTemplate>
+            </TabControl>
+        </Grid>
+    </Grid>
 </Window>

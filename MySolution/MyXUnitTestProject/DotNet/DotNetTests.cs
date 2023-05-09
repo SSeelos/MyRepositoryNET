@@ -1,6 +1,4 @@
-﻿using MyClassLibraryNET;
-
-namespace MyXUnitTestProject
+﻿namespace MyRootNamespace.MyClassLibraryNET.Tests
 {
     public class DotNetTests
     {

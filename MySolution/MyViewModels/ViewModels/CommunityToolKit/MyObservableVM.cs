@@ -1,5 +1,4 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-using MyViewModels.Commands;
 using System.Windows.Input;
 
 namespace MyViewModels.CommunityToolkit
@@ -18,6 +17,7 @@ namespace MyViewModels.CommunityToolkit
         {
 
         }
+        public ICommand MyThrowingCommand => new ThrowingCommand(this);
 
         public ICommand MyCommand => new MyCommand(this);
     }
