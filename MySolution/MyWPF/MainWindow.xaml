@@ -35,6 +35,7 @@
                 <ColumnDefinition MinWidth="200"/>
                 <ColumnDefinition MinWidth="50"/>
             </Grid.ColumnDefinitions>
+            <UserControls:MyUserControl MyPropertyWrapper="{Binding MyPropertyA}"/>
             <TabControl Grid.Column="1"
                         ItemsSource="{Binding MyModels}">
                 <TabControl.ContentTemplate>

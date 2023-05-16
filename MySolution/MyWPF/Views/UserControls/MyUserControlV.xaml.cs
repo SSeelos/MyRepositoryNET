@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using CommunityToolkit.Mvvm.Input;
+using System.ComponentModel;
 using System.Windows.Controls;
 using System.Windows.Input;
 
@@ -22,11 +23,15 @@ namespace MyWPF.Views.UserControls
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(MyProperty)));
             }
         }
-        public ICommand MyCommand { get; set; }
+        public ICommand MyCommand => new RelayCommand(() =>
+        {
+            MyProperty = (MyProperty != nameof(MyCommand))
+            ? nameof(MyCommand)
+            : nameof(MyProperty);
+        });
 
         public MyUserControlV()
         {
-            DataContext = this;
             InitializeComponent();
         }
     }

@@ -46,8 +46,8 @@ namespace MyWPF.Views.UserControls
 
         #region SelectedItem
 
-        public static readonly DependencyProperty SelectedString_DP =
-            DependencyProperty.Register(
+        public static readonly DependencyProperty SelectedString_DP
+            = DependencyProperty.Register(
                 nameof(SelectedString), typeof(string),
                 typeof(MyEnumComboBox),
                 new PropertyMetadata(string.Empty));
