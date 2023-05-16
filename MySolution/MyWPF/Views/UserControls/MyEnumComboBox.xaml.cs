@@ -65,7 +65,7 @@ namespace MyWPF.Views.UserControls
         public MyEnumComboBox()
         {
             InitializeComponent();
-            this.ComboBox.DataContext = this;
+            //this.ComboBox.DataContext = this;
         }
     }
 }
