@@ -39,14 +39,14 @@ namespace MyViewModels
         /// Call before a property value is changing
         /// to notify clients
         /// </summary>
-        public virtual void OnPropertyChanging([CallerMemberName] string? propertyName = null)
-            => PropertyChanging?.Invoke(this, new PropertyChangingEventArgs(propertyName));
+        public virtual void OnPropertyChanging([CallerMemberName] string? name = null)
+            => PropertyChanging?.Invoke(this, new PropertyChangingEventArgs(name));
         /// <summary>
         /// Call after a property value has changed
         /// to notify clients
         /// </summary>
-        public virtual void OnPropertyChanged([CallerMemberName] string? propertyName = null)
-            => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        public virtual void OnPropertyChanged([CallerMemberName] string? name = null)
+            => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
     }
 
     /// <summary>
@@ -56,7 +56,7 @@ namespace MyViewModels
     {
         event PropertyChangedEventHandler? PropertyChanged;
         event PropertyChangingEventHandler? PropertyChanging;
-        void OnPropertyChanging([CallerMemberName] string? propertyName = null);
-        void OnPropertyChanged([CallerMemberName] string? propertyName = null);
+        void OnPropertyChanging([CallerMemberName] string? name = null);
+        void OnPropertyChanged([CallerMemberName] string? name = null);
     }
 }

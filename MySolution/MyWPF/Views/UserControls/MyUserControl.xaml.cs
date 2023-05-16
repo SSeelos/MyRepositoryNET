@@ -10,14 +10,14 @@ namespace MyWPF.Views.UserControls
     {
         public static readonly DependencyProperty MyDependencyProperty =
             DependencyProperty.Register(
-                               nameof(MyPropertyWrapper),
-                               typeof(string),
-                               typeof(MyUserControl),
-                               new PropertyMetadata(default(string), OnPropertyChangedCallback));
+                nameof(MyPropertyWrapper), typeof(string),
+                typeof(MyUserControl),
+                new PropertyMetadata(default(string), OnPropertyChangedCallback));
 
-        private static void OnPropertyChangedCallback(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        private static void OnPropertyChangedCallback(DependencyObject dObj, DependencyPropertyChangedEventArgs args)
         {
-            if (d is not MyUserControl myUserControl)
+            if (dObj is not MyUserControl owner ||
+                args.NewValue is not string value)
                 return;
 
             //...
@@ -32,10 +32,18 @@ namespace MyWPF.Views.UserControls
             set => SetValue(MyDependencyProperty, value);
         }
 
+        internal static readonly DependencyPropertyKey MyDependencyPropertyKey
+            = DependencyProperty.RegisterReadOnly(
+                nameof(MyReadOnlyPropertyWrapper), typeof(string),
+                typeof(MyUserControl),
+                new PropertyMetadata(default(string)));
+
+        public string MyReadOnlyPropertyWrapper
+            => (string)GetValue(MyDependencyPropertyKey.DependencyProperty);
+
         public MyUserControl()
         {
             InitializeComponent();
-
         }
     }
 }

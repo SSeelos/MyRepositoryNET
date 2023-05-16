@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -11,72 +9,64 @@ namespace MyWPF.Views.UserControls
     /// <summary>
     /// Interaction logic for MyTypeComboBox.xaml
     /// </summary>
-    public partial class MyTypeComboBox : UserControl, INotifyPropertyChanged
+    public partial class MyTypeComboBox : UserControl
     {
-        public static readonly DependencyProperty BaseTypeProperty =
-            DependencyProperty.Register(
-                nameof(BaseType),
-                typeof(Type),
+        public static readonly DependencyProperty BaseType_DP
+            = DependencyProperty.Register(
+                nameof(BaseType), typeof(Type),
                 typeof(MyTypeComboBox),
                 new PropertyMetadata(null, OnBaseTypeChanged));
 
-        private static void OnBaseTypeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            if (d is not MyTypeComboBox comboBox)
-                return;
-
-            if (e.NewValue is not Type typeValue)
-                return;
-
-            RefreshAssignableTypes(comboBox, typeValue);
-            comboBox.SelectedType = typeValue;
-        }
-
         public Type BaseType
         {
-            get => (Type)GetValue(BaseTypeProperty);
-            set => SetValue(BaseTypeProperty, value);
+            get => (Type)GetValue(BaseType_DP);
+            set => SetValue(BaseType_DP, value);
         }
 
-        private Type _type;
+        private static void OnBaseTypeChanged(DependencyObject dObj, DependencyPropertyChangedEventArgs args)
+        {
+            if (!(dObj is MyTypeComboBox owner) ||
+                !(args.NewValue is Type))
+                return;
+
+            ResetAssignableTypes(owner);
+            owner.SelectedType = owner.BaseType;
+        }
+
+        public static readonly DependencyProperty SelectedType_DP =
+            DependencyProperty.Register(
+                nameof(SelectedType), typeof(Type),
+                typeof(MyTypeComboBox),
+                new PropertyMetadata(null));
         public Type SelectedType
         {
-            get => _type;
-            set
-            {
-                _type = value;
-                OnPropertyChanged();
-            }
+            get => (Type)GetValue(SelectedType_DP);
+            set => SetValue(SelectedType_DP, value);
         }
+
         public ObservableCollection<Type> AssignableTypes { get; set; }
             = new ObservableCollection<Type>();
         public MyTypeComboBox()
         {
             InitializeComponent();
-            this.DataContext = this;
+            this.MyComboBox.DataContext = this;
         }
 
-        private static void RefreshAssignableTypes(MyTypeComboBox comboBox, Type baseType)
+        private static void ResetAssignableTypes(MyTypeComboBox comboBox)
         {
-            if (baseType == null)
-                return;
-
             comboBox.AssignableTypes.Clear();
-            var types = baseType?.Assembly
+            var types = comboBox.BaseType?.Assembly
                 .GetTypes()
-                .Where(t => baseType.IsAssignableFrom(t))
+                .Where(t => comboBox.BaseType.IsAssignableFrom(t))
                 .OrderBy(t => t.Name);
+
+            if (types == null)
+                return;
 
             foreach (var type in types)
             {
                 comboBox.AssignableTypes.Add(type);
             }
-        }
-
-        public event PropertyChangedEventHandler? PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

@@ -5,9 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:VM="clr-namespace:MyViewModels;assembly=MyViewModels"
         xmlns:M="clr-namespace:MyViewModels.Models;assembly=MyViewModels"
+        xmlns:NET="clr-namespace:MyClassLibraryNetStandard2_0;assembly=MyClassLibraryNetStandard2_0"
         xmlns:UserControls="clr-namespace:MyWPF.Views.UserControls"
         xmlns:PagesV="clr-namespace:MyWPF.Views.Pages"
-        d:DataContext="{d:DesignInstance Type=VM:MyVM, IsDesignTimeCreatable=True}"
+        d:DataContext="{d:DesignInstance Type=VM:MyVM}"
         mc:Ignorable="d"
         Title="MainWindow"
         MinWidth="800"
@@ -19,10 +20,14 @@
             <RowDefinition MinHeight="40"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Orientation="Horizontal">
-
-            <UserControls:MyUserControlV MyProperty="MyProperty"/>
-            <!--<UserControls:MyEnumComboBox MyEnumValue="{x:Type VM:_MyViewModel }"/>-->
-            <UserControls:MyTypeComboBox BaseType="{x:Type VM:_Command }"/>
+            <UserControls:MyUserControlV
+                MyProperty="MyProperty"/>
+            <UserControls:MyEnumComboBox
+                MyEnumType="{x:Type NET:MyEnum}"
+                SelectedString="{Binding MyEnum, Mode=TwoWay}"/>
+            <UserControls:MyTypeComboBox
+                BaseType="{x:Type VM:_Command }"
+                SelectedType="{Binding MySelectedType, Mode=TwoWay}"/>
         </StackPanel>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>

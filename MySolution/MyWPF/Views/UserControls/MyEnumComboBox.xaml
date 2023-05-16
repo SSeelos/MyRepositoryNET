@@ -5,5 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <ComboBox Name ="Select" Width="{Binding Width}" SelectedItem="{Binding SelectedString}" ItemsSource="{Binding Items}"/>
+    <ComboBox Name ="ComboBox"
+              DisplayMemberPath="Name"
+              SelectedItem="{Binding SelectedString}"
+              ItemsSource="{Binding Items}"/>
 </UserControl>

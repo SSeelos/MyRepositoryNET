@@ -1,9 +1,7 @@
-﻿using MyClassLibraryNetStandard2_0;
-using System;
+﻿using System;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Linq;
-using System.Runtime.CompilerServices;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace MyWPF.Views.UserControls
@@ -11,36 +9,63 @@ namespace MyWPF.Views.UserControls
     /// <summary>
     /// Interaction logic for MyEnumComboBox.xaml
     /// </summary>
-    public partial class MyEnumComboBox : UserControl, INotifyPropertyChanged
+    public partial class MyEnumComboBox : UserControl
     {
-        private MyEnum _myEnumValue;
-        public MyEnum MyEnumValue
+        #region EnumType
+        public static readonly DependencyProperty MyEnumType_DP
+            = DependencyProperty.Register(
+                nameof(MyEnumType), typeof(Type),
+                typeof(MyEnumComboBox),
+                new PropertyMetadata(null, OnMyEnumTypeChanged));
+
+        public Type MyEnumType
         {
-            get => _myEnumValue;
-            set
+            get => (Type)GetValue(MyEnumType_DP);
+            set => SetValue(MyEnumType_DP, value);
+        }
+
+        private static void OnMyEnumTypeChanged(DependencyObject obj, DependencyPropertyChangedEventArgs args)
+        {
+            if (!(obj is MyEnumComboBox owner) ||
+                !(args.NewValue is Type type))
+                return;
+
+            owner.MyItems.Clear();
+
+            var enumValues = Enum.GetValues(type)
+                .Cast<object>()
+                .OrderBy(value => value.ToString());
+
+            foreach (var value in enumValues)
             {
-                _myEnumValue = value;
-                OnPropertyChanged();
+                string str = value.ToString();
+                owner.MyItems.Add(str);
             }
         }
-        public ObservableCollection<MyEnum> MyEnumValues { get; set; }
-        //combobox that binds to an enum
+        #endregion
+
+        #region SelectedItem
+
+        public static readonly DependencyProperty SelectedString_DP =
+            DependencyProperty.Register(
+                nameof(SelectedString), typeof(string),
+                typeof(MyEnumComboBox),
+                new PropertyMetadata(string.Empty));
+
+        public string SelectedString
+        {
+            get => (string)GetValue(SelectedString_DP);
+            set => SetValue(SelectedString_DP, value);
+        }
+        #endregion
+
+        public ObservableCollection<object> MyItems { get; set; }
+            = new ObservableCollection<object>();
+
         public MyEnumComboBox()
         {
             InitializeComponent();
-            this.DataContext = this;
-
-            var enumValue = Enum.GetValues(typeof(MyEnum))
-                .Cast<MyEnum>()
-                .OrderBy(x => x.ToString());
-
-            this.MyEnumValues = new ObservableCollection<MyEnum>(enumValue);
-        }
-
-        public event PropertyChangedEventHandler? PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName] string name = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+            this.ComboBox.DataContext = this;
         }
     }
 }
