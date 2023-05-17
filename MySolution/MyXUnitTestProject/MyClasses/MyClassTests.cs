@@ -1,4 +1,6 @@
-﻿namespace MyRootNamespace.MyClassLibraryNET.Tests
+﻿using System.Reflection;
+
+namespace MyRootNamespace.MyClassLibraryNET.Tests
 {
     public class MyClassTests
     {
@@ -88,6 +90,29 @@
 
             //will only return one of the subscribers value
             var result = invoke.Invoke();
+        }
+        [Fact]
+        public void GetMembers()
+        {
+            var members = typeof(MyClass).GetMembers();
+            var privateMembers = typeof(MyClass).GetMembers(BindingFlags.NonPublic);
+            var publicMembers = typeof(MyClass).GetMembers(BindingFlags.Public);
+
+            members.Should().NotBeEmpty();
+            privateMembers.Should().NotBeEmpty();
+            publicMembers.Should().NotBeEmpty();
+        }
+        [Fact]
+        public void GetFields()
+        {
+            var fields = typeof(MyClass).GetFields();
+            fields.Should().NotBeEmpty();
+        }
+        [Fact]
+        public void GetProperties()
+        {
+            var properties = typeof(MyClass).GetProperties();
+            properties.Should().NotBeEmpty();
         }
     }
 }

@@ -76,6 +76,8 @@ public class MyClass : _MyAbstractClass, IMyInterfaceA, IMyInterfaceB
     /// </summary>
     public string MyInit { get; init; }
 
+    public static MyClass MyStaticInstance = new MyClass();
+
     #region Advanced Property
 
     public double Min;
