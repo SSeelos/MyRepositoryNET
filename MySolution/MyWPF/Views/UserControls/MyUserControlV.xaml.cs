@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.Input;
 using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using System.Windows.Controls;
 using System.Windows.Input;
 
@@ -10,17 +11,18 @@ namespace MyWPF.Views.UserControls
     /// </summary>
     public partial class MyUserControlV : UserControl, INotifyPropertyChanged
     {
-        private string myVar;
-
         public event PropertyChangedEventHandler? PropertyChanged;
+        public void OnPropertyChanged([CallerMemberName] string propertyName = null)
+            => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
+        private string myVar;
         public string MyProperty
         {
             get => myVar;
             set
             {
                 myVar = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(MyProperty)));
+                OnPropertyChanged();
             }
         }
         public ICommand MyCommand => new RelayCommand(() =>

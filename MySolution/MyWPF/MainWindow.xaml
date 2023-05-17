@@ -24,10 +24,10 @@
                 MyProperty="MyProperty"/>
             <UserControls:MyEnumComboBox
                 MyEnumType="{x:Type NET:MyEnum}"
-                SelectedString="{Binding MyEnum, Mode=TwoWay}"/>
+                SelectedString="{Binding MyEnum, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
             <UserControls:MyTypeComboBox
                 BaseType="{x:Type VM:_Command }"
-                SelectedType="{Binding MySelectedType, Mode=TwoWay}"/>
+                SelectedType="{Binding MySelectedType, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
         </StackPanel>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
@@ -35,7 +35,8 @@
                 <ColumnDefinition MinWidth="200"/>
                 <ColumnDefinition MinWidth="50"/>
             </Grid.ColumnDefinitions>
-            <UserControls:MyUserControl MyPropertyWrapper="{Binding MyPropertyA}"/>
+            <UserControls:MyUserControl
+                MyPropertyWrapper="{Binding MyPropertyA,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
             <TabControl Grid.Column="1"
                         ItemsSource="{Binding MyModels}">
                 <TabControl.ContentTemplate>
@@ -45,5 +46,6 @@
                 </TabControl.ContentTemplate>
             </TabControl>
         </Grid>
+        <TextBlock Grid.Row="2" Text="{Binding MyPropertyA, Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"/>
     </Grid>
 </Window>

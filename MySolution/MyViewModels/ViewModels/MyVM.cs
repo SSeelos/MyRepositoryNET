@@ -7,8 +7,8 @@ namespace MyViewModels
 {
     public class MyVM : _MyViewModel
     {
-        private string? _myPropertyA;
-        public string? MyPropertyA
+        private string _myPropertyA = nameof(MyPropertyA);
+        public string MyPropertyA
         {
             get => _myPropertyA;
             set
@@ -30,7 +30,7 @@ namespace MyViewModels
             }
         }
 
-        private MyEnum _myEnum;
+        private MyEnum _myEnum = MyEnum.MyValueA;
 
         public MyEnum MyEnum
         {

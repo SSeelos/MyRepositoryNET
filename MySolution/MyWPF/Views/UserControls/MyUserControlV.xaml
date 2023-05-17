@@ -23,8 +23,11 @@
             </Menu>
 
         <Button Grid.Row="0" Grid.Column="1" Content="MyButton" Command="{Binding MyCommand}"></Button>
-        <TextBlock Grid.Row="1" Grid.Column="0" Text="{Binding MyProperty}"></TextBlock>
-        <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding MyProperty}"></TextBlock>
+        <TextBox Grid.Row="1" Grid.Column="0"
+                 Text="{Binding MyProperty,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBlock Grid.Row="1" Grid.Column="1"
+                 Text="{Binding MyProperty, UpdateSourceTrigger=PropertyChanged}"
+                 Background="LightGray" />
 
     </Grid>
 </UserControl>

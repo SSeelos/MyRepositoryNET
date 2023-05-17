@@ -41,7 +41,12 @@ namespace MyWPF.Views.UserControls
                 string str = value.ToString();
                 owner.MyItems.Add(str);
             }
+
+            //init default selection
+            owner.SelectedString = owner.MyItems.FirstOrDefault();
         }
+        public ObservableCollection<string> MyItems { get; set; }
+            = new ObservableCollection<string>();
         #endregion
 
         #region SelectedItem
@@ -59,8 +64,6 @@ namespace MyWPF.Views.UserControls
         }
         #endregion
 
-        public ObservableCollection<object> MyItems { get; set; }
-            = new ObservableCollection<object>();
 
         public MyEnumComboBox()
         {

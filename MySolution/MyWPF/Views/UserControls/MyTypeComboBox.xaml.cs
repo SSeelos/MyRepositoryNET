@@ -38,6 +38,7 @@ namespace MyWPF.Views.UserControls
                 nameof(SelectedType), typeof(Type),
                 typeof(MyTypeComboBox),
                 new PropertyMetadata(null));
+
         public Type SelectedType
         {
             get => (Type)GetValue(SelectedType_DP);

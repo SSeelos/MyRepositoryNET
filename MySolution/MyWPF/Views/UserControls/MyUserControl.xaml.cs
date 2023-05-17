@@ -12,16 +12,7 @@ namespace MyWPF.Views.UserControls
             DependencyProperty.Register(
                 nameof(MyPropertyWrapper), typeof(string),
                 typeof(MyUserControl),
-                new PropertyMetadata(default(string), OnPropertyChangedCallback));
-
-        private static void OnPropertyChangedCallback(DependencyObject dObj, DependencyPropertyChangedEventArgs args)
-        {
-            if (dObj is not MyUserControl owner ||
-                args.NewValue is not string value)
-                return;
-
-            //...
-        }
+                new PropertyMetadata(default(string)));
 
         /// <summary>
         /// wrapper for <see cref="MyDependencyProperty"/>
@@ -44,6 +35,7 @@ namespace MyWPF.Views.UserControls
         public MyUserControl()
         {
             InitializeComponent();
+            this.MyStackPanel.DataContext = this;
         }
     }
 }
