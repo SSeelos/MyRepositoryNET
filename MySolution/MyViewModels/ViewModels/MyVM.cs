@@ -30,7 +30,7 @@ namespace MyViewModels
             }
         }
 
-        private MyEnum _myEnum = MyEnum.MyValueA;
+        private MyEnum _myEnum;
 
         public MyEnum MyEnum
         {
@@ -48,7 +48,6 @@ namespace MyViewModels
             get => _mySelectedType;
             set
             {
-                OnPropertyChanging();
                 _mySelectedType = value;
                 OnPropertyChanged();
             }

@@ -26,11 +26,11 @@ namespace MyWPF.Views.UserControls
         private static void OnBaseTypeChanged(DependencyObject dObj, DependencyPropertyChangedEventArgs args)
         {
             if (!(dObj is MyTypeComboBox owner) ||
-                !(args.NewValue is Type))
+                !(args.NewValue is Type type))
                 return;
 
             ResetAssignableTypes(owner);
-            owner.SelectedType = owner.BaseType;
+            owner.SelectedType = type;
         }
 
         public static readonly DependencyProperty SelectedType_DP =
