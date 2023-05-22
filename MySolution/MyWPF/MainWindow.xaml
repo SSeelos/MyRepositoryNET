@@ -16,7 +16,9 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition MinHeight="40"/>
+            <RowDefinition Height="5"/>
             <RowDefinition MinHeight="100"/>
+            <RowDefinition Height="5"/>
             <RowDefinition MinHeight="40"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Orientation="Horizontal">
@@ -31,15 +33,19 @@
             <Button Content="AddModel" Command="{Binding AddModelCmd}"/>
             <Button Content="ObservableCmd" Command="{Binding ObservableCmd}"/>
         </StackPanel>
-        <Grid Grid.Row="1">
+        <GridSplitter Grid.Row="1" HorizontalAlignment="Stretch"/>
+        <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition MinWidth="50"/>
+                <ColumnDefinition Width="5"/>
                 <ColumnDefinition MinWidth="200"/>
+                <ColumnDefinition Width="5"/>
                 <ColumnDefinition MinWidth="50"/>
             </Grid.ColumnDefinitions>
-            <UserControls:MyUserControl
+            <UserControls:MyUserControl Grid.Column="0"
                 MyPropertyWrapper="{Binding MyPropertyA,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
-            <TabControl Grid.Column="1"
+            <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch"/>
+            <TabControl Grid.Column="2"
                         ItemsSource="{Binding MyModels}">
                 <TabControl.ContentTemplate>
                     <DataTemplate DataType="M:MyModel">
@@ -47,12 +53,15 @@
                     </DataTemplate>
                 </TabControl.ContentTemplate>
             </TabControl>
-            <ScrollViewer Grid.Column="2" VerticalScrollBarVisibility="Auto">
+            <GridSplitter Grid.Column="3" HorizontalAlignment="Stretch"/>
+            <ScrollViewer Grid.Column="4" VerticalScrollBarVisibility="Auto">
                 <DataGrid ItemsSource="{Binding MyModels,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"
                           SelectedItem="{Binding MyModel, Mode=OneWayToSource}"
+                          SelectionMode="Extended"
                           IsSynchronizedWithCurrentItem="True"/>
             </ScrollViewer>
         </Grid>
-        <TextBlock Grid.Row="2" Text="{Binding MyPropertyA, Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"/>
+        <GridSplitter Grid.Row="3" HorizontalAlignment="Stretch"/>
+        <TextBlock Grid.Row="4" Text="{Binding MyPropertyA, Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"/>
     </Grid>
 </Window>
