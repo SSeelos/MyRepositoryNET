@@ -56,6 +56,18 @@ namespace MyViewModels
 
         public ObservableCollection<MyModel> MyModels { get; set; }
             = new ObservableCollection<MyModel>();
+        private MyModel _myModel;
+
+        public MyModel MyModel
+        {
+            get => _myModel;
+            set
+            {
+                _myModel = value;
+                OnPropertyChanged();
+            }
+        }
+
         public void AddModel()
         {
             this.MyModels.Add(new MyModel()
@@ -64,9 +76,25 @@ namespace MyViewModels
                 MyPropertyB = nameof(MyPropertyB)
             });
         }
-        //public MyModel MyModel { get; set; }
-        //public MyObservableModel MyObservableModel { get; set; }
+
+        //public MyVM()
+        //{
+        //    //AddModelCmd = new RelayCommand(AddModel);
+        //}
 
         public ICommand MyThrowingCommand => new MyThrowingCommand();
+        public ICommand AddModelCmd => new MyAddCmd<MyModel>(MyModels,
+            new MyModel()
+            {
+                MyPropertyA = nameof(MyPropertyA),
+                MyPropertyB = nameof(MyPropertyB)
+            });
+        public ICommand ObservableCmd
+            => new MyObservableCollectionCmd<MyModel>(MyModels,
+            (MyModels) => MyModels.Add(new MyModel()
+            {
+                MyPropertyA = nameof(MyPropertyA),
+                MyPropertyB = nameof(MyPropertyB)
+            }));
     }
 }
