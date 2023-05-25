@@ -10,8 +10,6 @@ namespace MyViewModels.CommunityToolkit
         }
 
         protected override void TryExecute(object? parameter)
-        {
-            throw new NotImplementedException();
-        }
+            => new Exception("you done fucked up");
     }
 }

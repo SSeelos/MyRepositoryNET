@@ -30,8 +30,9 @@
             <UserControls:MyTypeComboBox
                 BaseType="{x:Type VM:_Command }"
                 SelectedType="{Binding MySelectedType, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-            <Button Content="AddModel" Command="{Binding AddModelCmd}"/>
-            <Button Content="ObservableCmd" Command="{Binding ObservableCmd}"/>
+            <Button Style="{DynamicResource ButtonStyle1}" Content="AddModel" Command="{Binding AddModelCmd}"/>
+            <Button Style="{StaticResource MyButtonStyle}" Content="ObservableCmd" Command="{Binding ObservableCmd}"/>
+            <Button Style="{StaticResource MyButtonStyle}" Content="Window" Command="{Binding MyWindowCommand}"/>
         </StackPanel>
         <GridSplitter Grid.Row="1" HorizontalAlignment="Stretch"/>
         <Grid Grid.Row="2">

@@ -82,6 +82,7 @@ namespace MyViewModels
         //}
 
         public ICommand MyThrowingCommand => new MyThrowingCommand();
+        public ICommand MyRelayCommand => new MyRelayCommand((d) => { }, (s) => true);
         public ICommand AddModelCmd => new MyAddCmd<MyModel>(MyModels,
             new MyModel()
             {
