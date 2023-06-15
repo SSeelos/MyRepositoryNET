@@ -8,7 +8,7 @@
         xmlns:NET="clr-namespace:MyClassLibraryNetStandard2_0;assembly=MyClassLibraryNetStandard2_0"
         xmlns:UserControls="clr-namespace:MyWPF.Views.UserControls"
         xmlns:PagesV="clr-namespace:MyWPF.Views.Pages"
-        d:DataContext="{d:DesignInstance VM:MyVM}"
+        d:DataContext="{d:DesignInstance VM:MainWindowVM}"
         mc:Ignorable="d"
         Title="MainWindow"
         MinWidth="800"

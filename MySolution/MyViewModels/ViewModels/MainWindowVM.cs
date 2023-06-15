@@ -1,11 +1,12 @@
 ﻿using MyClassLibraryNetStandard2_0;
 using MyViewModels.Models;
+using Serilog;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 
 namespace MyViewModels
 {
-    public class MyVM : _MyViewModel
+    public class MainWindowVM : _MyViewModel
     {
         private string _myPropertyA = nameof(MyPropertyA);
         public string MyPropertyA
@@ -80,6 +81,11 @@ namespace MyViewModels
         //{
         //    //AddModelCmd = new RelayCommand(AddModel);
         //}
+        public readonly ILogger Logger;
+        public MainWindowVM(ILogger logger)
+        {
+            this.Logger = logger;
+        }
 
         public ICommand MyThrowingCommand => new MyThrowingCommand();
         public ICommand MyRelayCommand => new MyRelayCommand((d) => { }, (s) => true);

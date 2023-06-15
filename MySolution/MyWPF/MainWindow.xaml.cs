@@ -8,9 +8,9 @@ namespace MyWPF
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        public MainWindow(MainWindowVM vm)
         {
-            DataContext = new MyVM();
+            DataContext = vm;
             InitializeComponent();
         }
     }
