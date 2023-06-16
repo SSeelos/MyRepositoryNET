@@ -1,5 +1,8 @@
 ﻿namespace MyRootNamespace.MyClassLibraryNET;
 
+/// <summary>
+/// seal custom attribute classes (faster look-up for the attribute)
+/// </summary>
 [AttributeUsage(AttributeTargets.All, Inherited = false, AllowMultiple = true)]
 sealed class MyAttribute : Attribute
 {
@@ -15,10 +18,11 @@ sealed class MyAttribute : Attribute
     /// </summary>
     public string MyNamedParameter { get; set; }
 
+    /// <summary>
+    /// initialize required arguments
+    /// </summary>
     public MyAttribute(string positionalParameter)
     {
         this.myPositionalParameter = positionalParameter;
     }
-
-
 }
