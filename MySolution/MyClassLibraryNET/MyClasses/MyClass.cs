@@ -5,6 +5,7 @@ namespace MyRootNamespace.MyClassLibraryNET;
 /// <summary>
 /// reference type
 /// </summary>
+[MyClassTarget("MyPositionalParameterA", "MyPositionalParameterB", MyNamedParameter = "MyNamedParameter")]
 public class MyClass : _MyAbstractClass, IMyInterfaceA, IMyInterfaceB
 {
     #region Members
@@ -32,6 +33,8 @@ public class MyClass : _MyAbstractClass, IMyInterfaceA, IMyInterfaceB
     /// </summary>
     public static readonly string myStaticReadonlyField = nameof(myStaticReadonlyField);
 
+    [MyFieldTarget("MyPositionalParameter")]
+    private string myAttributedField = nameof(myAttributedField);
     #endregion
 
     #region Properties
@@ -76,6 +79,9 @@ public class MyClass : _MyAbstractClass, IMyInterfaceA, IMyInterfaceB
     /// </summary>
     public string MyInit { get; init; }
 
+    [MyPropertyTarget("MyPositionalParameter")]
+    public string MyAttributedProperty { get; set; } = nameof(MyAttributedProperty);
+
     public static MyClass MyStaticInstance = new MyClass();
 
     #region Advanced Property
@@ -95,7 +101,6 @@ public class MyClass : _MyAbstractClass, IMyInterfaceA, IMyInterfaceB
         }
     }
     public event Action<double>? OnValueChanged;
-
     #endregion
 
     #endregion
