@@ -10,5 +10,11 @@
 
             result.Should().Be("expected" + "MyPartialMethod");
         }
+
+        [Fact()]
+        public void UseGeneratedClassTest()
+        {
+            MySourceGeneratorUser.UseGeneratedClass();
+        }
     }
 }
