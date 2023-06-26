@@ -25,12 +25,16 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyLibraryTargetframeworks",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyLibraryTargetframeworksTests", "MyLibraryTargetframeworksTests\MyLibraryTargetframeworksTests.csproj", "{0F7738B0-9DA4-4288-8C2C-DF91E318DBA1}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "_build", "..\build\_build.csproj", "{B5F7E2EE-3A52-4475-9997-47CE8C1419E6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B5F7E2EE-3A52-4475-9997-47CE8C1419E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5F7E2EE-3A52-4475-9997-47CE8C1419E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E5E7F1EF-207F-4C5D-9D98-BEC35EA384F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E5E7F1EF-207F-4C5D-9D98-BEC35EA384F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E5E7F1EF-207F-4C5D-9D98-BEC35EA384F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
