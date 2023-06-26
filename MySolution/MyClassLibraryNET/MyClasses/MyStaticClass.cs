@@ -1,4 +1,5 @@
-﻿using System.Runtime.CompilerServices;
+﻿using System.Reflection;
+using System.Runtime.CompilerServices;
 
 namespace MyRootNamespace.MyClassLibraryNET;
 
@@ -10,29 +11,29 @@ public static class MyStaticClass
     public static readonly string MyReadOnly = nameof(MyReadOnly);
 
 
-    public static void MyMethod()
+    public static string MyMethod()
     {
-        throw new NotImplementedException();
+        return MethodBase.GetCurrentMethod().Display();
     }
 
     /// <summary>
     /// extension method for <see cref="MyClass"/>
     /// </summary>
-    public static void MyExtensionMethod(this MyClass subject)
+    public static string MyExtensionMethod(this MyClass subject)
     {
-        throw new NotImplementedException();
+        return MethodBase.GetCurrentMethod().Display();
     }
-    public static void MyExtensionMethod(this _MyAbstractClass subject)
+    public static string MyExtensionMethod(this _MyAbstractClass subject)
     {
-        throw new NotImplementedException();
+        return MethodBase.GetCurrentMethod().Display();
     }
     /// <summary>
     /// will never be called because class already defines this signature
     /// <see cref="MyClass.MyMethod"/>
     /// </summary>
-    public static void MyMethod(this MyClass subject)
+    public static string MyMethod(this MyClass subject)
     {
-        throw new NotImplementedException();
+        return MethodBase.GetCurrentMethod().Display();
     }
     public static string GetCallerMemberName([CallerMemberName] string callerMemberName = "")
         => callerMemberName;

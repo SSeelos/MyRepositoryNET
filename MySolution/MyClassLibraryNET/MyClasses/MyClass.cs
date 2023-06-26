@@ -152,36 +152,36 @@ public class MyClass : _MyAbstractClass, IMyInterfaceA, IMyInterfaceB
     }
     public static void MyStaticMethod()
     {
-        throw new NotImplementedException();
+        //...
     }
 
 
     public void MyInterfaceA_Method()
     {
-        throw new NotImplementedException();
+        //...
     }
 
     public void MyInterfaceB_Method()
     {
-        throw new NotImplementedException();
+        //...
     }
 
     protected override void MyProtectedAbstractMethod()
     {
-        throw new NotImplementedException();
+        //...
     }
 
     public override void MyAbstractMethod()
     {
-        throw new NotImplementedException();
+        //...
     }
     /// <summary>
     /// "new" method gets only called if not cast to base class!
-    /// (<see cref="_MyAbstractClass"/>)
+    /// (<see cref="_MyAbstractClass.MyNewMethod"/>)
     /// </summary>
     public new string MyNewMethod()
     {
-        throw new NotImplementedException();
+        return MethodBase.GetCurrentMethod().Display();
     }
 
     #endregion

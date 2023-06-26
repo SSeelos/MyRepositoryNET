@@ -26,7 +26,7 @@
             };
             var with = myStruct with { MyProperty = myStruct.MyInitA + "with" };
             with.Should().NotBeNull();
-            with.MyInitA.Should().Be(myStruct.MyInitA + "with");
+            with.MyProperty.Should().Be(myStruct.MyInitA + "with");
         }
         [Fact]
         public void EqualsTest()

@@ -1,4 +1,6 @@
-﻿namespace MyRootNamespace.MyClassLibraryNET;
+﻿using System.Reflection;
+
+namespace MyRootNamespace.MyClassLibraryNET;
 
 /// <summary>
 /// base class
@@ -23,11 +25,11 @@ public abstract class _MyAbstractClass : IMyInterfaceC
 
     public void MyMethodFromBase()
     {
-        throw new NotImplementedException();
+        //...
     }
     public void MyInterfaceC_Method()
     {
-        throw new NotImplementedException();
+        //...
     }
 
     /// <summary>
@@ -44,7 +46,7 @@ public abstract class _MyAbstractClass : IMyInterfaceC
     /// </summary>
     protected virtual void MyProtectedVirtualMethod()
     {
-        throw new NotImplementedException();
+        //...
     }
 
     /// <summary>
@@ -52,16 +54,17 @@ public abstract class _MyAbstractClass : IMyInterfaceC
     /// </summary>
     public virtual void MyVirtualMethod()
     {
-        throw new NotImplementedException();
+        //...
     }
 
 
     /// <summary>
-    /// use the new keyword in the derived class to test the behaviour
-    /// (any derived class cast to this abstract class will call this method rather than the "new" method of the derived class)
+    /// use the new keyword in a derived class to test the behaviour
+    /// <br>(<see cref="MyClass.MyNewMethod"/> || <see cref="MyDerivedClass.MyNewMethod"/>)</br>
+    /// <br>any derived class cast to this abstract class will call this method rather than the "new" method of the derived class!</br>
     /// </summary>
     public string MyNewMethod()
     {
-        throw new NotImplementedException();
+        return MethodBase.GetCurrentMethod().Display();
     }
 }

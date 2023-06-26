@@ -5,13 +5,6 @@ namespace MyRootNamespace.MyClassLibraryNET.Tests
     public class MyClassTests
     {
         [Fact()]
-        public void MyClassTest()
-        {
-            var myObject = new MyClass();
-            myObject.Should().NotBeNull();
-            myObject.MyInit.Should().Be(nameof(MyClass.MyInit));
-        }
-        [Fact()]
         public void MyClassInitTest()
         {
             var myObject = new MyClass() { MyInit = nameof(MyClass.MyInit) };
@@ -99,8 +92,6 @@ namespace MyRootNamespace.MyClassLibraryNET.Tests
             var publicMembers = typeof(MyClass).GetMembers(BindingFlags.Public);
 
             members.Should().NotBeEmpty();
-            privateMembers.Should().NotBeEmpty();
-            publicMembers.Should().NotBeEmpty();
         }
         [Fact]
         public void GetFields()

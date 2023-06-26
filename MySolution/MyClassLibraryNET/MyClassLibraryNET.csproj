@@ -10,9 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MyClassLibraryNetFramework\MyClassLibraryNetFramework.csproj" />
-    <ProjectReference Include="..\MyClassLibraryNetStandard2_0\MyClassLibraryNetStandard2_0.csproj"
-                      OutputItemType ="Analyzer"
-                      ReferenceOutputAssembly ="false"/>
+    <ProjectReference Include="..\MyClassLibraryNetStandard2_0\MyClassLibraryNetStandard2_0.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
     <ProjectReference Include="..\MyClassLibraryNetStandard2_1\MyClassLibraryNetStandard2_1.csproj" />
   </ItemGroup>
 
