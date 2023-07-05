@@ -1,16 +1,15 @@
 ﻿namespace MyXUnitTestProject
 {
     [Collection(nameof(MyCollectionFixtures))]
-    public class MyCollectionTests
+    public class MyCollectionTestsA
     {
         MyFixtureA myFixtureA;
         MyFixtureB myFixtureB;
-        public MyCollectionTests(MyFixtureA myFixtureA, MyFixtureB myFixtureB)
+        public MyCollectionTestsA(MyFixtureA myFixtureA, MyFixtureB myFixtureB)
         {
             this.myFixtureA = myFixtureA;
             this.myFixtureB = myFixtureB;
         }
-
 
         [Fact]
         public void MyFactA()
