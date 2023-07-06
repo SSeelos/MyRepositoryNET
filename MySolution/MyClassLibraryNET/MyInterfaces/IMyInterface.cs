@@ -8,7 +8,11 @@ public interface IMyInterfaceB
 {
     void MyInterfaceB_Method();
 }
-public interface IMyInterfaceAB { }
+/// <summary>
+/// pseudo interface combining <see cref="IMyInterfaceA"/> and <see cref="IMyInterfaceB"/>
+/// </summary>
+public interface IMyInterfaceAB : IMyInterfaceA, IMyInterfaceB
+{ }
 public interface IMyInterfaceC
 {
     void MyInterfaceC_Method();
