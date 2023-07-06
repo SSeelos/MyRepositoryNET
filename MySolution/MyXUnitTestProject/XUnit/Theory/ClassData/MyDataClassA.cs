@@ -2,7 +2,7 @@
 
 namespace MyXUnitTestProject
 {
-    public class MyClassDataA : IEnumerable<object[]>
+    public class MyDataClassA : IEnumerable<object[]>
     {
         public IEnumerator<object[]> GetEnumerator()
             => new List<object[]>()

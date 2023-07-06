@@ -3,7 +3,7 @@
     public class MyClassDataTheory
     {
         [Theory]
-        [ClassData(typeof(MyClassDataA))]
+        [ClassData(typeof(MyDataClassA))]
         public void MyTheory(int id, string data)
         {
             id.Should().BeOneOf(1, 2);
