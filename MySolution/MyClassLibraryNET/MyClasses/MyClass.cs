@@ -50,12 +50,12 @@ public class MyClass : _MyAbstractClass, IMyInterfaceA, IMyInterfaceB
     /// <summary>
     /// backing field for <see cref="MyFullProperty"/>
     /// </summary>
-    private int myFullProperty;
+    private string myFullProperty;
     /// <summary>
     /// property with (explicit) backing field <see cref="myFullProperty"/>
     /// </summary>
 
-    public int MyFullProperty
+    public string MyFullProperty
     {
         get { return myFullProperty; }
         set { myFullProperty = value; }
