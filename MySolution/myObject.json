@@ -1,0 +1,7 @@
+{
+  "myString": "myValue",
+  "myNumber": 1,
+  "myTrue": true,
+  "myFalse": false,
+  "myNull": null
+}

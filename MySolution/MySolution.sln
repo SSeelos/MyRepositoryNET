@@ -29,7 +29,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "_build", "..\build\_build.c
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "JSON", "JSON", "{3D004A84-571B-4E34-8D5B-1EED1130EA53}"
 	ProjectSection(SolutionItems) = preProject
+		myArray.json = myArray.json
 		myJSON.json = myJSON.json
+		myObject.json = myObject.json
 	EndProjectSection
 EndProject
 Global

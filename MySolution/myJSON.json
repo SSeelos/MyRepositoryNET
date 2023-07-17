@@ -1,4 +1,33 @@
 {
-  "MyPropertyA": "myValueA",
-  "MyPropertyB": "myValueB"
+  "myString": "myValue",
+  "myTrue": true,
+  "myFalse": false,
+  "myNull": null,
+  "myNumber": 1,
+  "myNegativeNumber": -1,
+  "myFraction": 0.5,
+  "myExponent": 1E+3,
+  "myNegativeExponent": 1E-3,
+  "myObject": {
+    "myStringA": "myValueA",
+    "myStringB": "myValueB",
+    "myNestedArray": [ "myValueA", "myValueB" ],
+    "myNestedObj": {
+      "myStringA": "myValueA",
+      "myStringB": "myValueB"
+    }
+  },
+  "myArray": [
+    "myValueA",
+    "myValueB",
+    1,
+    true,
+    false,
+    null,
+    [ "myNestedA", "myNestedB" ],
+    {
+      "myStringA": "myValueA",
+      "myStringB": "myValueB"
+    }
+  ]
 }
