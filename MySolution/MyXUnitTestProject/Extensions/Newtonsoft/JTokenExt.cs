@@ -9,14 +9,15 @@ namespace MyXUnitTestProject
         public void GetValue_StringTest()
         {
             var jObj = JObject.Parse("{'myString':'myValue'}");
-            var value = jObj.GetValue<string>("myString");
+            string? value = jObj.GetTokenValue<string>("myString");
             value.Should().Be("myValue");
         }
         [Fact]
         public void GetValue_ArrayTest()
         {
             var jObj = JObject.Parse("{myArray: ['A','B']}");
-            var value = jObj.GetValue<JArray>("myArray");
+            JArray? value = jObj.GetTokenValue<JArray>("myArray");
+            value.Should().NotBeNull();
         }
 
     }

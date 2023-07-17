@@ -4,7 +4,7 @@ namespace MyRootNamespace.MyClassLibraryNET
 {
     public static class JTokenExt
     {
-        public static T? GetValue<T>(this JToken token, string tokenName)
+        public static T? GetTokenValue<T>(this JToken token, string tokenName)
         {
             var value = token.SelectToken(tokenName);
             return value == null ? default : value.Value<T>();
