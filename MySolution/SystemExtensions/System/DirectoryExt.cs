@@ -29,7 +29,7 @@ public static class DirectoryExt
     public static IEnumerable<FileInfo> GetFilesUpwards(this DirectoryInfo directoryInfo, Func<FileInfo, bool> filePredicate)
     {
         IEnumerable<FileInfo> files = Enumerable.Empty<FileInfo>();
-        while (directoryInfo != null && !files.Any())
+        while (directoryInfo.Parent != null && !files.Any())
         {
             directoryInfo = directoryInfo.Parent;
             files = directoryInfo.GetFiles()
