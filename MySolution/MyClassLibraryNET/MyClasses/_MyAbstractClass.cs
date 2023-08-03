@@ -14,6 +14,8 @@ public abstract class _MyAbstractClass : IMyInterfaceC
     //only accessible from derived classes
     protected string? _myProtectedField;
 
+    public abstract string MyAbstractProperty { get; set; }
+
     public _MyAbstractClass()
     {
 

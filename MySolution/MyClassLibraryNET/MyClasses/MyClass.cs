@@ -78,6 +78,9 @@ public class MyClass : _MyAbstractClass, IMyInterfaceA, IMyInterfaceB
     public string? MyInitNullable { get; init; }
     /// </summary>
     public string MyInit { get; init; }
+    public virtual string MyVirtualProperty => nameof(MyVirtualProperty);
+    //private string _myAbstractProperty = nameof(MyAbstractProperty);
+    public override string MyAbstractProperty { get; set; } = nameof(MyAbstractProperty);
 
     [MyPropertyTarget("MyPositionalParameter")]
     public string MyAttributedProperty { get; set; } = nameof(MyAttributedProperty);

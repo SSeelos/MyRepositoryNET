@@ -105,5 +105,14 @@ namespace MyRootNamespace.MyClassLibraryNET.Tests
             var properties = typeof(MyClass).GetProperties();
             properties.Should().NotBeEmpty();
         }
+        [Fact]
+        public void AbstractPropertyTest()
+        {
+            var instance = new MyClass();
+            instance.MyAbstractProperty.Should().Be("MyAbstractProperty");
+
+            instance.MyAbstractProperty = "new value";
+            instance.MyAbstractProperty.Should().Be("new value");
+        }
     }
 }
