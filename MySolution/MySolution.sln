@@ -34,6 +34,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "JSON", "JSON", "{3D004A84-5
 		myObject.json = myObject.json
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyBenchmarkDotNet", "MyBenchmarkDotNet\MyBenchmarkDotNet.csproj", "{1CFE534A-CA57-41AE-BFAF-AEA1F3E58D4B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -86,6 +88,10 @@ Global
 		{0F7738B0-9DA4-4288-8C2C-DF91E318DBA1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B5F7E2EE-3A52-4475-9997-47CE8C1419E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B5F7E2EE-3A52-4475-9997-47CE8C1419E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CFE534A-CA57-41AE-BFAF-AEA1F3E58D4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CFE534A-CA57-41AE-BFAF-AEA1F3E58D4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CFE534A-CA57-41AE-BFAF-AEA1F3E58D4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CFE534A-CA57-41AE-BFAF-AEA1F3E58D4B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
