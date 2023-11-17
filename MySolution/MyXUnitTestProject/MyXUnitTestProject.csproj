@@ -29,4 +29,8 @@
     <ProjectReference Include="..\MyClassLibraryNET\MyClassLibraryNET.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="System\" />
+  </ItemGroup>
+
 </Project>

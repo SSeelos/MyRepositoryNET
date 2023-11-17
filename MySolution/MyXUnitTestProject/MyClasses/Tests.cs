@@ -30,5 +30,6 @@
             casted.Should().Be("MyClass.MyNewMethod()");
             castedAbs.Should().Be("_MyAbstractClass.MyNewMethod()");
         }
+
     }
 }
