@@ -6,7 +6,7 @@ namespace MyRootNamespace.MyClassLibraryNET
     {
         public static T? GetTokenValue<T>(this JToken token, string tokenName)
         {
-            var value = token.SelectToken(tokenName);
+            JToken? value = token.SelectToken(tokenName);
             return value == null ? default : value.Value<T>();
         }
     }

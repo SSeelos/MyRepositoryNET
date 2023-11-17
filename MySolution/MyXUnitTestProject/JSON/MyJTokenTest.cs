@@ -21,5 +21,13 @@ namespace MyXUnitTestProject
             JToken jToken = JToken.FromObject(new MyClass { MyAutoProperty = null, MyFullProperty = "myValue" }, serializer);
             jToken.Should().NotBeNull();
         }
+
+        [Fact]
+        public void Reader()
+        {
+            JToken token = JToken.FromObject(new { MyValue = "myValue" });
+            JsonReader reader = token.CreateReader();
+        }
+
     }
 }

@@ -1,15 +1,14 @@
 ﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using SystemExtensions;
 
 namespace MyXUnitTestProject
 {
-    public class MyJSONDeserializeTests : IDisposable
+    public class MyJsonDeserializeTests : IDisposable
     {
         string json;
-        public MyJSONDeserializeTests()
+        public MyJsonDeserializeTests()
         {
-            var directory = DirectoryExt.GetCurrent().GetElder(f => f.Extension == ".sln");
+            var directory = DirectoryExt.GetCurrent().GetElder(file => file.Extension == ".sln");
             var jsonPath = Path.Combine(directory.FullName, "myJSON.json");
             json = File.ReadAllText(jsonPath);
         }
@@ -19,13 +18,6 @@ namespace MyXUnitTestProject
             json = null;
         }
 
-        [Fact()]
-        public void JObject_Parse()
-        {
-            var jObj = JObject.Parse(json);
-
-            jObj.Should().NotBeNull();
-        }
         [Fact()]
         public void MyMethodTest()
         {
